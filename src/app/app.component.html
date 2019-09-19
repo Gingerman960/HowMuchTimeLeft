@@ -36,7 +36,8 @@
     </div>
   </div>
   <div class="text-center time-has-come" *ngIf="timeHasCome">
-    Congratulations! Your wait is over!!!
+    <div>Congratulations!</div>
+    <div>Your wait is over!!!</div>
   </div>
   <div class="text-center" *ngIf="timeLeft || timeHasCome">
     <button mat-button (click)="resetTimer()">Reset</button>

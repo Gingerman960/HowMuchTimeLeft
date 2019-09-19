@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+* {
+  color: #333;
+}
+.container{
+  margin: 0;
+  background: #ffd54f;
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Roboto;
+  .time-left {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    &.till {
+      font-size: 20px;
+    }
+    &.left {
+      font-size: 40px;
+    }
+  }
+  .hide {
+    display: none;
+  }
+  .picker-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .timePicker-container {
+    ::ng-deep &.mat-form-field-appearance-legacy .mat-form-field-infix {
+      display: flex;
+      .ngx-material-timepicker-toggle {
+        padding: 0;
+        margin: 0;
+        svg {
+          height: 17px;
+          fill: gray;
+        }
+      }
+    }
+  }
+  .timer-container {
+    display: flex;
+    margin-bottom: 30px;
+    .column {
+      margin: 10px 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .content {
+      }
+      .digit {
+        font-size: 70px;
+        margin-bottom: 5px;
+        width: 100px;
+      }
+      .word {
+        font-size: 16px;
+        width: 70px;
+        text-transform: uppercase;
+      }
+    }
+  }
+}

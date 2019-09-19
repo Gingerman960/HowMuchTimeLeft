@@ -1,20 +1,43 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="container">
+  <div class="text-center picker-container">
+    <mat-form-field class="example-full-width" *ngIf="displayDatePicker">
+      <input matInput [matDatepicker]="picker" placeholder="Choose a date" (click)="picker.open()" [(ngModel)]="dueDate"
+      (ngModelChange)="setDate()">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker [touchUi]="isMobile()" #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="timePicker-container" *ngIf="displayTimePicker">
+      <input matInput [ngxTimepicker]="timePicker" placeholder="Choose a time" [format]="24">
+      <ngx-material-timepicker-toggle [for]="timePicker"></ngx-material-timepicker-toggle>
+      <ngx-material-timepicker #timePicker (timeSet)="setTime($event)"></ngx-material-timepicker>
+    </mat-form-field>
+  </div>
+  <div class="text-center">
+    <h1 *ngIf="dueDateTime" class="time-left till">
+      <span>Till {{ dueDateTime | date :'EEEE, MMMM d, y, HH:mm:ss' }}</span>
+    </h1>
+  </div>
+  <div class="text-center timer-container" *ngIf="timeLeft">
+    <div class="column">
+      <span class="content digit">{{timeLeft.days.digit}}</span>
+      <span class="content word">{{timeLeft.days.word}}</span>
+    </div>
+    <div class="column">
+      <span class="content digit">{{timeLeft.hours.digit}}</span>
+      <span class="content word">{{timeLeft.hours.word}}</span>
+    </div>
+    <div class="column">
+      <span class="content digit">{{timeLeft.minutes.digit}}</span>
+      <span class="content word">{{timeLeft.minutes.word}}</span>
+    </div>
+    <div class="column">
+      <span class="content digit">{{timeLeft.seconds.digit}}</span>
+      <span class="content word">{{timeLeft.seconds.word}}</span>
+    </div>
+  </div>
+  <div class="text-center" *ngIf="timeLeft">
+    <button mat-button (click)="resetTimer()">Reset</button>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+
 

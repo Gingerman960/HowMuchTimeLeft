@@ -3,6 +3,7 @@
   color: #333;
 }
 .container{
+  padding: 30px;
   margin: 0;
   background: #ffd54f;
   display: flex;
@@ -64,5 +65,8 @@
         text-transform: uppercase;
       }
     }
+  }
+  .time-has-come {
+    font-size: 70px;
   }
 }

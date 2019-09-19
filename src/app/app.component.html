@@ -35,7 +35,10 @@
       <span class="content word">{{timeLeft.seconds.word}}</span>
     </div>
   </div>
-  <div class="text-center" *ngIf="timeLeft">
+  <div class="text-center time-has-come" *ngIf="timeHasCome">
+    Congratulations! Your wait is over!!!
+  </div>
+  <div class="text-center" *ngIf="timeLeft || timeHasCome">
     <button mat-button (click)="resetTimer()">Reset</button>
   </div>
 </div>

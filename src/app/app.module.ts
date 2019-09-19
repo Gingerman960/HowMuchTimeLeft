@@ -3,20 +3,20 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {
-  MatButtonModule,
-  MatCheckboxModule,
-  MatDatepickerModule,
-  MatFormFieldModule,
-  MatInputModule,
-  MatNativeDateModule
-} from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
 import {NgxMaterialTimepickerComponent, NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import {DigitComponent} from './digit/digit.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DigitComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +28,7 @@ import {NgxMaterialTimepickerComponent, NgxMaterialTimepickerModule} from 'ngx-m
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    NgxMaterialTimepickerModule,
+    NgxMaterialTimepickerModule
   ],
   providers: [NgxMaterialTimepickerComponent],
   bootstrap: [AppComponent]

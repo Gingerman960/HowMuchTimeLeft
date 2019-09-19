@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
   public displayTimePicker = false;
   public displayDatePicker = false;
   public stopTimer = new Subject();
+  public timeHasCome = false;
   constructor(public timePicker: NgxMaterialTimepickerComponent) {
   }
   ngOnInit(): void {
@@ -60,6 +61,8 @@ export class AppComponent implements OnInit {
     if (distance < 0) {
       this.timeLeft = null;
       this.stopTimer.next();
+      this.dueDateTime = null;
+      this.timeHasCome = true;
       return;
     }
 
@@ -73,7 +76,6 @@ export class AppComponent implements OnInit {
         digit: num,
         word: (+num === 1 || (+num > 20 && num[num.length - 1] === '1') ? ` ${single}` : ` ${doubleOrZero}`)
       };
-      // return num + (+num === 1 || (+num > 20 && num[num.length - 1] === '1') ? ` ${single}` : ` ${doubleOrZero}`);
     }
 
     this.timeLeft = {
@@ -88,6 +90,7 @@ export class AppComponent implements OnInit {
     this.dueDateTime = null;
     this.timeLeft = null;
     this.displayDatePicker = true;
+    this.timeHasCome = false;
     localStorage.removeItem('dueDate');
   }
 }

@@ -15,12 +15,7 @@
     margin-bottom: 30px;
     display: flex;
     flex-direction: column;
-    &.till {
-      font-size: 20px;
-    }
-    &.left {
-      font-size: 40px;
-    }
+    font-size: 14px;
   }
   .hide {
     display: none;
@@ -55,6 +50,7 @@
         width: 80px;
       }
       .digit {
+        font-weight: bold;
         font-size: 50px;
         margin-bottom: 5px;
       }
@@ -77,6 +73,9 @@
     color: white;
   }
   @media screen and (min-width: 700px){
+    .time-left {
+      font-size: 20px;
+    }
     .timer-container {
       .column {
         margin: 10px 15px;

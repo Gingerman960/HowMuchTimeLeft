@@ -1,8 +1,7 @@
 <div class="container">
   <div class="text-center picker-container">
     <mat-form-field class="example-full-width" *ngIf="displayDatePicker">
-      <input matInput [matDatepicker]="picker" placeholder="Choose a date" (click)="picker.open()" [(ngModel)]="dueDate"
-      (ngModelChange)="setDate()">
+      <input matInput [matDatepicker]="picker" placeholder="Choose a date" (click)="picker.open()" (dateChange)="setDate($event)">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker [touchUi]="isMobile()" #picker></mat-datepicker>
     </mat-form-field>
@@ -40,7 +39,7 @@
     <div>Your wait is over!!!</div>
   </div>
   <div class="text-center" *ngIf="timeLeft || timeHasCome">
-    <button mat-button (click)="resetTimer()">Reset</button>
+    <button class="reset-button" mat-raised-button (click)="resetTimer()">{{timeHasCome ? 'Set new Timer' : 'Reset'}}</button>
   </div>
 </div>
 

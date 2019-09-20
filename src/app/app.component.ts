@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { takeUntil } from 'rxjs/operators';
+import {startWith, takeUntil} from 'rxjs/operators';
 import { interval, Subject } from 'rxjs';
 import { NgxMaterialTimepickerComponent } from 'ngx-material-timepicker';
 
@@ -29,7 +29,8 @@ export class AppComponent implements OnInit {
   }
 
 
-  public setDate() {
+  public setDate($event) {
+    this.dueDate = $event.value;
     this.displayTimePicker = true;
   }
 
@@ -49,7 +50,9 @@ export class AppComponent implements OnInit {
     return window.innerWidth < 700;
   }
   public initTimer() {
-    interval(1000).pipe(takeUntil(this.stopTimer)).subscribe(() => {
+    interval(1000).pipe(
+      startWith(0),
+      takeUntil(this.stopTimer)).subscribe(() => {
       this.setTimer();
     });
     this.displayDatePicker = false;

@@ -1,7 +1,52 @@
-@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 .text-center {
   text-align: center;
 }
 body {
   margin: 0;
+  background: #26a9df;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  app-root {
+    width: 100%;
+  }
+}
+$someColor: #51504e;
+.timepicker {
+
+  .timepicker__header {
+    background-color: $someColor !important;
+    .timepicker-dial__container {
+      .timepicker-dial__item {
+        outline: none;
+      }
+      justify-content: center;
+      .timepicker-dial__period--hidden {
+        display: none;
+      }
+    }
+  }
+
+  .clock-face__clock-hand {
+    background-color: $someColor !important;
+
+    &::after {
+      background-color: $someColor !important;
+    }
+
+    &::before {
+      border-color: $someColor !important;
+    }
+  }
+
+  .clock-face__number {
+    > span.active {
+      background-color: $someColor !important;
+    }
+  }
+
+  button:not(.timepicker-dial__item) {
+    color: $someColor !important;
+  }
 }
